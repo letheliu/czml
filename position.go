@@ -3,13 +3,15 @@ package czml
 // Position defines a position
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/Position
 type Position struct {
-	Epoch               string                    `json:"epoch,omitempty"`
-	ReferenceFrame      string                    `json:"referenceFrame,omitempty"`
-	Cartesian           *Cartesian3Value          `json:"cartesian,omitempty"`
-	CartographicRadians *CartographicRadiansValue `json:"cartographicRadians,omitempty"`
-	CartographicDegrees []string                  `json:"cartographicDegrees,omitempty"`
-	CartesianVelocity   *Cartesian3VelocityValue  `json:"cartesianVelocity,omitempty"`
-	Reference           ReferenceValue            `json:"reference,omitempty"`
+	InterpolationAlgorithm string                    `json:"interpolationAlgorithm,omitempty"`
+	InterpolationDegree    string                    `json:"interpolationDegree,omitempty"`
+	Epoch                  string                    `json:"epoch,omitempty"`
+	ReferenceFrame         string                    `json:"referenceFrame,omitempty"`
+	Cartesian              *Cartesian3Value          `json:"cartesian,omitempty"`
+	CartographicRadians    *CartographicRadiansValue `json:"cartographicRadians,omitempty"`
+	CartographicDegrees    []string                  `json:"cartographicDegrees,omitempty"`
+	CartesianVelocity      *Cartesian3VelocityValue  `json:"cartesianVelocity,omitempty"`
+	Reference              ReferenceValue            `json:"reference,omitempty"`
 }
 
 // PositionList defines a list of positions
