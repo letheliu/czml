@@ -4,7 +4,7 @@ package czml
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/Position
 type Position struct {
 	InterpolationAlgorithm string                    `json:"interpolationAlgorithm,omitempty"`
-	InterpolationDegree    string                    `json:"interpolationDegree,omitempty"`
+	InterpolationDegree    float64                   `json:"interpolationDegree,omitempty"`
 	Epoch                  string                    `json:"epoch,omitempty"`
 	ReferenceFrame         string                    `json:"referenceFrame,omitempty"`
 	Cartesian              *Cartesian3Value          `json:"cartesian,omitempty"`
