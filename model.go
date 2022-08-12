@@ -3,10 +3,10 @@ package czml
 // Model describes a 3D model
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/Model
 type Model struct {
+	Gltf                      string                    `json:"gltf"`
+	Scale                     float64                   `json:"scale,omitempty"`
+	MinimumPixelSize          float64                   `json:"minimumPixelSize,omitempty"`
 	Show                      *bool                     `json:"show,omitempty"`
-	Gltf                      *Uri                      `json:"uri"`
-	Scale                     *float64                  `json:"scale,omitempty"`
-	MinimumPixelSize          *float64                  `json:"minimumPixelSize,omitempty"`
 	MaximumScale              *float64                  `json:"maximumScale,omitempty"`
 	MinimumCone               *float64                  `json:"minimumCone,omitempty"`
 	IncrementallyLoadTextures *bool                     `json:"incrementallyLoadTextures,omitempty"`
