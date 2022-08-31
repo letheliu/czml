@@ -3,12 +3,12 @@ package czml
 // Label is a string of text
 // https://github.com/AnalyticalGraphicsInc/czml-writer/wiki/Label
 type Label struct {
-	Show                       *bool                     `json:"show,omitempty"`
+	Show                       bool                      `json:"show,omitempty"`
 	Text                       string                    `json:"text,omitempty"`
 	Font                       *Font                     `json:"font,omitempty"`
 	Style                      *LabelStyle               `json:"style,omitempty"`
-	Scale                      *float64                  `json:"scale,omitempty"`
-	ShowBackground             *bool                     `json:"showBackground,omitempty"`
+	Scale                      float64                   `json:"scale,omitempty"`
+	ShowBackground             bool                      `json:"showBackground,omitempty"`
 	BackgroundColor            *Color                    `json:"backgroundColor,omitempty"`
 	BackgroundPadding          *BackgroundPadding        `json:"backgroundPadding,omitempty"`
 	PixelOffset                *PixelOffset              `json:"pixelOffset,omitempty"`
@@ -18,12 +18,12 @@ type Label struct {
 	HeightReference            *HeightReference          `json:"heightReference,omitempty"`
 	FillColor                  *Color                    `json:"fillColor,omitempty"`
 	OutlineColor               *Color                    `json:"outlineColor,omitempty"`
-	OutlineWidth               *float64                  `json:"outlineWidth,omitempty"`
+	OutlineWidth               float64                   `json:"outlineWidth,omitempty"`
 	TranslucencyByDistance     *NearFarScaler            `json:"translucencyByDistance,omitempty"`
 	PixelOffsetScaleByDistance *NearFarScaler            `json:"pixelOffsetScaleByDistance,omitempty"`
 	ScaleByDistance            *NearFarScaler            `json:"scaleByDistance,omitempty"`
 	DistanceDisplayCondition   *DistanceDisplayCondition `json:"distanceDisplayCondition,omitempty"`
-	DisableDepthTestDistance   *float64                  `json:"disableDepthTestDistance,omitempty"`
+	DisableDepthTestDistance   float64                   `json:"disableDepthTestDistance,omitempty"`
 }
 
 // BackgroundPadding describes the amount of horizontal and vertical padding, in pixels, between a

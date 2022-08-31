@@ -1,8 +1,10 @@
 package czml
 
 import (
-	"encoding/json"
+	"bytes"
 	"errors"
+	"github.com/bytedance/sonic"
+	"github.com/bytedance/sonic/encoder"
 )
 
 // Czml is a .czml file, which is a valid JSON document that contains an array of packets
@@ -10,23 +12,34 @@ type Czml struct {
 	Packets []Packet
 }
 
+func Version() string {
+	return "v1.0.2"
+}
+
 // Unmarshal accepts raw byte data (i.e. a .czml file) and returns
 // the data Unmarshaled into the CZML structured interface
 func Unmarshal(data []byte, v interface{}) error {
-	return json.Unmarshal(data, v)
+	// return json.Unmarshal(data, v)
+	return sonic.Unmarshal(data, v)
 }
 
 // Marshal accepts a name for the document and a Packet array,
 // and returns the Marshaled czml data
 func Marshal(c Czml) ([]byte, error) {
-	return json.Marshal(c.Packets)
+	// return json.Marshal(c.Packets)
+	return sonic.Marshal(c.Packets)
 }
 
 // MarshalIndent accepts a name for the document, a Packet array,
 // a prefix string, and an indentation string, and returns the
 // Marshaled and Indented czml data
 func MarshalIndent(c Czml, prefix, indent string) ([]byte, error) {
-	return json.MarshalIndent(&c.Packets, prefix, indent)
+	// return json.MarshalIndent(&c.Packets, prefix, indent)
+	w := bytes.NewBuffer(nil)
+	enc := encoder.NewStreamEncoder(w)
+	enc.SetIndent(prefix, indent)
+	err := enc.Encode(&c.Packets)
+	return w.Bytes(), err
 }
 
 // InitializeDocument initializes .czml file data with the "document" packet as the first packet
